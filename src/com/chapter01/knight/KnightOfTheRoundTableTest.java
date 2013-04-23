@@ -1,4 +1,4 @@
-package com.ruicaihua.chapter01.knight;
+package com.chapter01.knight;
 
 import junit.framework.TestCase;
 

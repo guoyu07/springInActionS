@@ -1,4 +1,4 @@
-package com.ruicaihua.chapter01.hello;
+package com.chapter01.hello;
 
 public class HelloWorld implements IHelloWorld {
 	private String greeting;

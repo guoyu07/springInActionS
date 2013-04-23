@@ -1,4 +1,4 @@
-package com.ruicaihua.chapter01.knight;
+package com.chapter01.knight;
 import org.apache.log4j.Category;
 import org.apache.log4j.Logger;
 public class Minstrel {

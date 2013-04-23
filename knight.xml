@@ -5,11 +5,11 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
 	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
 	
-	<bean id="questB" class="com.ruicaihua.chapter01.knight.HolyGrailQuest"></bean>
-	<bean id="knight" class="com.ruicaihua.chapter01.knight.KnightOfTheRoundTable">
+	<bean id="questB" class="com.chapter01.knight.HolyGrailQuest"></bean>
+	<bean id="knight" class="com.chapter01.knight.KnightOfTheRoundTable">
 		<constructor-arg value="qichengjie"></constructor-arg>
 		<property name="quest" ref="questB"></property></bean>
-	<bean id="minstrel" class="com.ruicaihua.chapter01.knight.Minstrel"></bean>
+	<bean id="minstrel" class="com.chapter01.knight.Minstrel"></bean>
 	<aop:config>
 		<aop:aspect ref="minstrel">  <!-- 创建minstrel切面 -->
 			 <aop:pointcut id="questPointcut" expression="execution(* *.embarkOnQuest(..)) and target(bean)" />

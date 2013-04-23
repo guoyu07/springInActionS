@@ -1,4 +1,4 @@
-package com.ruicaihua.chapter01.hello;
+package com.chapter01.hello;
 
 import org.springframework.beans.factory.BeanFactory;
 import org.springframework.beans.factory.xml.XmlBeanFactory;
