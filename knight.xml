@@ -1,11 +1,21 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:aop="http://www.springframework.org/schema/aop"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd  
+	http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd">
+	
 	<bean id="questB" class="com.ruicaihua.chapter01.knight.HolyGrailQuest"></bean>
 	<bean id="knight" class="com.ruicaihua.chapter01.knight.KnightOfTheRoundTable">
 		<constructor-arg value="qichengjie"></constructor-arg>
 		<property name="quest" ref="questB"></property></bean>
-
+	<bean id="minstrel" class="com.ruicaihua.chapter01.knight.Minstrel"></bean>
+	<aop:config>
+		<aop:aspect ref="minstrel">  <!-- 创建minstrel切面 -->
+			 <aop:pointcut id="questPointcut" expression="execution(* *.embarkOnQuest(..)) and target(bean)" />
+			 <aop:before method="singBefore" pointcut-ref="questPointcut" arg-names="bean" />
+			 <aop:after-returning method="singAfter" pointcut-ref="questPointcut" arg-names="bean" />
+		</aop:aspect>
+	</aop:config>
 
 </beans>
