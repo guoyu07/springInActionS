@@ -9,5 +9,8 @@
 	<classpathentry kind="lib" path="F:/jars/spring jar/aop/aopalliance-1.0.jar"/>
 	<classpathentry kind="lib" path="F:/jars/spring jar/spring-framework-3.0.5.RELEASE/dist/org.springframework.beans-3.0.5.RELEASE.jar"/>
 	<classpathentry kind="lib" path="F:/jars/spring jar/spring-framework-3.0.5.RELEASE/dist/org.springframework.core-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/jars/spring jar/spring-framework-3.0.5.RELEASE/dist/org.springframework.context-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/jars/spring jar/spring-framework-3.0.5.RELEASE/dist/org.springframework.asm-3.0.5.RELEASE.jar"/>
+	<classpathentry kind="lib" path="F:/jars/spring jar/spring-framework-3.0.5.RELEASE/dist/org.springframework.expression-3.0.5.RELEASE.jar"/>
 	<classpathentry kind="output" path="bin"/>
 </classpath>

@@ -1,0 +1,51 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	<!--  <bean id="duke" class="com.chapter02.Juggler">
+		<constructor-arg value="15"></constructor-arg></bean> -->
+		
+	<bean id="sonnet29" class="com.chapter02.Sonnet29"></bean>
+	<bean id="duke" class="com.chapter02.PoeticJuggler">
+		<constructor-arg value="15" ></constructor-arg>
+		<constructor-arg ref="sonnet29" ></constructor-arg>
+	</bean>
+		
+	<bean id="saxphone" class="com.chapter02.Saxophone"></bean>
+	<bean id="piano" class="com.chapter02.Piano"></bean>
+	<bean id="kenny" class="com.chapter02.Instrumentalist" >
+		<property name="song" value="Jingle Bells" ></property>
+		<!-- <property name="instrument" ref="piano" ></property>   -->
+		<!-- 内部bean,kenny将拥有自己的乐器 -->
+		<property name="instrument" >
+			<bean class="com.chapter02.Saxophone"></bean>
+		</property>
+	</bean>
+
+	<bean id="hank" class="com.chapter02.OneManBand" >
+		<property name="instruments" >
+		<!-- list可以有重复 -->
+		<!--
+			<list>
+				<ref bean="piano"></ref>
+				<ref bean="saxphone"></ref>
+				<ref bean="piano"></ref>
+			</list>
+		 -->
+		 <!-- set不可以有重复，会忽略重复 -->
+		 	<set>
+				<ref bean="piano"></ref>
+				<ref bean="saxphone"></ref>
+				<ref bean="piano"></ref>
+			</set>
+		</property>
+		<property name="mapTest">
+			<map>
+				<entry key="SAXPHONE" value-ref="saxphone" ></entry>
+				<entry key="PIANO" value-ref="piano" ></entry>
+				<entry key="SAXPHONE" value-ref="saxphone" ></entry>
+			</map>
+		</property>
+	</bean>
+
+</beans>
