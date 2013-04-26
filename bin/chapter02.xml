@@ -10,17 +10,36 @@
 		<constructor-arg value="15" ></constructor-arg>
 		<constructor-arg ref="sonnet29" ></constructor-arg>
 	</bean>
-		
+	
 	<bean id="saxphone" class="com.chapter02.Saxophone"></bean>
 	<bean id="piano" class="com.chapter02.Piano"></bean>
-	<bean id="kenny" class="com.chapter02.Instrumentalist" >
+	
+	<!-- 父Bean -->	
+	<bean id="baseSaxphonist" class="com.chapter02.Instrumentalist" abstract=true>
 		<property name="song" value="Jingle Bells" ></property>
-		<!-- <property name="instrument" ref="piano" ></property>   -->
+		<property name="instrument" ref="saxphone" ></property> 
+	</bean>
+	<!-- 子Bean -->
+	<bean id="kenny" parent="baseSaxphonist" ></bean>
+	<bean id="david" parent="baseSaxphonist" ></bean>
+	<bean id="frank" parent="baseSaxphonist" >
+		<!-- 子类覆盖父类 -->
+		<property name="song" value="Mary had a little lamb" ></property>
+	</bean>
+	
+	<!--  
+	<bean id="kenny" class="com.chapter02.Instrumentalist" 
+		init-method="tuneInstrument" destroy-method="cleanInstrument" >
+		<property name="song" value="Jingle Bells" ></property>
+		<property name="instrument" ref="piano" ></property>  -->
+		
 		<!-- 内部bean,kenny将拥有自己的乐器 -->
+		<!--
 		<property name="instrument" >
 			<bean class="com.chapter02.Saxophone"></bean>
 		</property>
-	</bean>
+		 -->
+	<!--</bean> -->
 
 	<bean id="hank" class="com.chapter02.OneManBand" >
 		<property name="instruments" >
@@ -45,7 +64,15 @@
 				<entry key="PIANO" value-ref="piano" ></entry>
 				<entry key="SAXPHONE" value-ref="saxphone" ></entry>
 			</map>
+			<!-- 
+			<props>
+				<prop key="PIANO">PLINK PLINK PLINK</prop>
+			</props>
+			--> 
 		</property>
 	</bean>
+	
+	<!-- Spring如何使用factory-method来配置单例Bean -->
+	<bean id="theStage" class="com.chapter02.Stage" factory-method="getInstance" ></bean>
 
 </beans>

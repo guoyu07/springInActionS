@@ -13,14 +13,14 @@ public class JugglerApp {
 		// TODO Auto-generated method stub
 		//为啥放项目根目录就找不到xml文件？
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("chapter02.xml");
-		Performer performer = (Performer)ctx.getBean("duke");
-		performer.perform();
+//		Performer performer = (Performer)ctx.getBean("duke");
+//		performer.perform();
 		
 		Performer performer2 = (Performer)ctx.getBean("kenny");
 		performer2.perform();
 		
-		Performer performer3 = (Performer)ctx.getBean("hank");
-		performer3.perform();
+//		Performer performer3 = (Performer)ctx.getBean("hank");
+//		performer3.perform();
 	}
 
 }

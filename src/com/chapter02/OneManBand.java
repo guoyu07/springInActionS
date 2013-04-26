@@ -5,6 +5,7 @@ import java.util.Map;
 
 public class OneManBand implements Performer {
 	private Collection<Instrument> instruments;
+	//Propertie 跟Map类似，只是要求key跟value都是String类型
 	private Map<String, Instrument> mapTest;
 	@Override
 	public void perform() throws PerformanceException {

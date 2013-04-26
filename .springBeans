@@ -8,6 +8,7 @@
 	<enableImports><![CDATA[false]]></enableImports>
 	<configs>
 		<config>knight.xml</config>
+		<config>src/chapter03.xml</config>
 	</configs>
 	<configSets>
 	</configSets>
