@@ -12,5 +12,12 @@
 	</bean>
 	
 	<bean id="tigerReplacer" class="com.chapter03.TigerReplacer" ></bean>
+	
+	<bean id="stieve" class="com.chapter03.Instrumentalist" >
+		<lookup-method name="getInstrument" bean="piano" ></lookup-method>
+		<property name="song" value="GreenSleeves" ></property>
+	</bean>
+	
+	<bean id="piano" class="com.chapter02.Piano"></bean>
 
 </beans>

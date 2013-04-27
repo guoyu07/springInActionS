@@ -17,6 +17,9 @@ public class MaigicApp {
 		ApplicationContext ctx = new ClassPathXmlApplicationContext("chapter03.xml");
 		Performer p1 = (Performer) ctx.getBean("harry");
 		p1.perform();
+		
+		Performer p2 = (Performer) ctx.getBean("stieve");
+		p2.perform();
 	}
 
 }
