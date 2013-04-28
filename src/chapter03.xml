@@ -20,4 +20,16 @@
 	
 	<bean id="piano" class="com.chapter02.Piano"></bean>
 
+	<bean class="org.springframework.beans.factory.config.CustomEditorConfigurer" >
+		<property name="customEditors">
+			<map>
+				<entry key="com.chapter03.PhoneNumber">
+					<bean id="phoneEditor" class="com.chapter03.PhoneEditor"></bean>
+				</entry>
+			</map>
+		</property>
+	</bean>
+	<bean id="contact" class="com.chapter03.Contact" >
+		<property name="phoneNumber" value="888-555-1212" ></property>
+	</bean>
 </beans>
