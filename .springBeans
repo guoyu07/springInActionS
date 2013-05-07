@@ -9,6 +9,7 @@
 	<configs>
 		<config>knight.xml</config>
 		<config>src/chapter03.xml</config>
+		<config>src/chapter04.xml</config>
 	</configs>
 	<configSets>
 	</configSets>

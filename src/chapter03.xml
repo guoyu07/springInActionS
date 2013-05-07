@@ -1,7 +1,9 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <beans xmlns="http://www.springframework.org/schema/beans"
 	xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+	xmlns:lang="http://www.springframework.org/schema/lang"
+	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+			http://www.springframework.org/schema/lang http://www.springframework.org/schema/lang/spring-lang.xsd">
 	<bean id="harry" class="com.chapter03.Magician" >
 		<property name="magicWords" value="bippity bopitty boo"></property>
 		<property name="magicBox" ref="magicBox" ></property>
@@ -32,4 +34,49 @@
 	<bean id="contact" class="com.chapter03.Contact" >
 		<property name="phoneNumber" value="888-555-1212" ></property>
 	</bean>
+	
+	<!--  
+	<bean id="coconut" class="com.chapter03.scripting.Coconut">
+		<property name="lime" ref="lime" ></property>
+	</bean>
+	-->
+	
+	<!-- 配置脚本化的Coconut bean  lang:property可以与任何脚本化bean元素共同使用   -->
+	<lang:groovy id="coconut" script-source="classpath:com/chapter03/scripting/Coconut.groovy">
+		<lang:property name="lime" ref="lime" ></lang:property>
+	</lang:groovy>
+	
+	<!--  ruby refresh-check-delay配置脚本刷新频率，单位毫秒
+	<lang:jruby id="lime" 
+		script-source="classpath:com/chapter03/scripting/Lime.rb"
+		script-interfaces="com.chapter03.scripting.Lime"
+		refresh-check-delay=5000 ></lang:jruby>
+	-->
+	
+	<!--  groovy  
+	<lang:groovy id="lime" script-source="classpath:com/chapter03/scripting/Lime.groovy"></lang:groovy>
+	-->
+	
+	<!--  bsh beanshell
+	<lang:bsh id="lime" 
+		script-source="classpath:com/chapter03/scripting/Lime.bsh"
+		script-interfaces="com.chapter03.scripting.Lime"></lang:bsh>
+	-->
+	
+	<!--  bsh beanshell 编写内嵌的脚本化Bean
+	<lang:bsh id="lime" 
+		script-source="classpath:com/chapter03/scripting/Lime.bsh">
+		<lang:inline-script>
+			<![CDATA[
+				void drink() {
+					System.out.println("Called the doctor woke him up......bsh!");
+				}
+			]]>
+		</lang:inline-script>
+	</lang:bsh>
+	-->
+	
+	<!-- 实现脚本化反注入 -->
+	<bean id="lime" class="com.chapter03.scripting.LimImpl" ></bean>
+	
 </beans>
